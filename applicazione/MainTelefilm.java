@@ -49,9 +49,9 @@ public class MainTelefilm {
         System.out.print("\nInserisci il nome dello sceneggiatore da cercare: ");
         String cercaNome = tastiera.nextLine();
         if (t1.cercaSceneggiatore(cercaNome)) {
-            System.out.println("Lo sceneggiatore " + cercaNome + " è presente!");
+            System.out.println("Lo sceneggiatore " + cercaNome + " è presente");
         } else {
-            System.out.println("Lo sceneggiatore " + cercaNome + " NON è presente.");
+            System.out.println("Lo sceneggiatore " + cercaNome + " on è presente.");
         }
 
         CollezioneTelefilm collezione = new CollezioneTelefilm(5);
