@@ -5,7 +5,7 @@ public class Stagione {
      * nome dello sceneggiatore;
      * trama;
      * numero della stagione (se è la prima il numero è 1, se è la seconda il numero
-      è 2...).
+     * è 2...).
      */
 
     private int nEp;
@@ -14,16 +14,16 @@ public class Stagione {
     private int nStagione;
 
     public Stagione(int nep, String nome, String trama, int nstagione) throws Exception {
-        this.nEp = setnEp(nep);
-        this.nome = setNome(nome);
-        this.trama = setTrama(trama);
-        this.nStagione = setnStagione(nstagione);
+        setnEp(nep);
+        setNome(nome);
+        setTrama(trama);
+        setnStagione(nstagione);
     }
 
     public Stagione() {
         this.nEp = 0;
-        this.nome = "";
-        this.trama = "";
+        this.nome = null;
+        this.trama = null;
         this.nStagione = 0;
     }
 
@@ -44,22 +44,26 @@ public class Stagione {
     }
 
     public void setnEp(int nEp) throws Exception {
-        if (nEp <= 0) throw new IllegalArgumentException("Error: Il numero di episodi deve essere maggiore di 0");
+        if (nEp <= 0)
+            throw new IllegalArgumentException("Error: Il numero di episodi deve essere maggiore di 0");
         this.nEp = nEp;
     }
 
     public void setNome(String nome) throws Exception {
-        if (nome == null || nome.trim().isEmpty()) throw new IllegalArgumentException("Error: Il nome dello sceneggiatore non può essere vuoto");
+        if (nome == null || nome.trim().isEmpty())
+            throw new IllegalArgumentException("Error: Il nome dello sceneggiatore non può essere vuoto");
         this.nome = nome;
     }
 
     public void setTrama(String trama) throws Exception {
-        if (trama == null || trama.trim().isEmpty()) throw new IllegalArgumentException("Error: La trama non può essere vuota");
+        if (trama == null || trama.trim().isEmpty())
+            throw new IllegalArgumentException("Error: La trama non può essere vuota");
         this.trama = trama;
     }
 
     public void setnStagione(int nStagione) throws Exception {
-        if (nStagione <= 0) throw new IllegalArgumentException("Error: Il numero della stagione deve essere maggiore di 0");
+        if (nStagione <= 0)
+            throw new IllegalArgumentException("Error: Il numero della stagione deve essere maggiore di 0");
         this.nStagione = nStagione;
     }
 

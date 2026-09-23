@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class MainTelefilm {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner tastiera = new Scanner(System.in);
 
         System.out.print("Inserisci il nome del telefilm: ");

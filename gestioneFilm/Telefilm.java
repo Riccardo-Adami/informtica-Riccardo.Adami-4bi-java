@@ -6,15 +6,15 @@ public class Telefilm {
     private boolean finito;
     private Stagione[] stagioni;
 
-    public Telefilm() {
+    public Telefilm() throws Exception {
         this("", "", false, new Stagione[0]);
     }
 
-    public Telefilm(String nomeFilm, String genereTeleFilm, boolean finito, Stagione[] stagioni) {
-        this.nomeFilm = setNomeFilm(nomeFilm);
-        this.genereTeleFilm = setGenereTeleFilm(genereTeleFilm);
-        this.finito = setFinito(finito);
-        this.stagioni = setStagioni(stagioni);
+    public Telefilm(String nomeFilm, String genereTeleFilm, boolean finito, Stagione[] stagioni) throws Exception {
+        setNomeFilm(nomeFilm);
+        setGenereTeleFilm(genereTeleFilm);
+        setFinito(finito);
+        setStagioni(stagioni);
     }
 
     public String getNomeFilm() {
@@ -67,7 +67,7 @@ public class Telefilm {
     public boolean cercaSceneggiatore(String nomeSceneggiatore) {
         if (stagioni != null) {
             for (Stagione s : stagioni) { // molto più comodo di indicizzare
-                if (s.getNomeSceneggiatore().equalsIgnoreCase(nomeSceneggiatore)) {
+                if (s.getNome().equalsIgnoreCase(nomeSceneggiatore)) {
                     return true;
                 }
             }
