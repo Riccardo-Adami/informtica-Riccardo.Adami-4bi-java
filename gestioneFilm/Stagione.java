@@ -13,18 +13,32 @@ public class Stagione {
     private String trama;
     private int nStagione;
 
-    public Stagione(int nep, String nome, String trama, int nstagione) throws Exception {
-        setnEp(nep);
-        setNome(nome);
-        setTrama(trama);
-        setnStagione(nstagione);
+    private static int numberOfStagioni = 0;
+
+    public Stagione(int nep, String nome, String trama) throws Exception {
+        try {
+            setnEp(nep);
+        } catch (Exception e) {
+            throw new Exception("Errore nella configurazione del numero di episodi");
+        }
+        try {
+            setNome(nome);
+        } catch (Exception e) {
+            throw new Exception("Errore nella configurazione del nome dello sceneggiatore");
+        }
+        try {
+            setTrama(trama);
+        } catch (Exception e) {
+            throw new Exception("Errore nella configurazione della trama");
+        }
+        this.nStagione = ++numberOfStagioni;
     }
 
     public Stagione() {
         this.nEp = 0;
         this.nome = null;
         this.trama = null;
-        this.nStagione = 0;
+        this.nStagione = ++numberOfStagioni;
     }
 
     public int getnEp() {
@@ -64,6 +78,8 @@ public class Stagione {
     public void setnStagione(int nStagione) throws Exception {
         if (nStagione <= 0)
             throw new IllegalArgumentException("Error: Il numero della stagione deve essere maggiore di 0");
+        if (nStagione > numberOfStagioni)
+            throw new IllegalArgumentException("Error: Il numero della stagione non può essere maggiore del numero di stagioni");
         this.nStagione = nStagione;
     }
 
