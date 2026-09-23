@@ -1,15 +1,13 @@
-import java.util.Arrays;
-
-public class CollezioneTelefilm {
+    public class CollezioneTelefilm {
     private Telefilm[] elenco;
     private int numTelefilm;
 
-    public CollezioneTelefilm() {
+    public CollezioneTelefilm() throws Exception {
         this.elenco = new Telefilm[10];
         this.numTelefilm = 0;
     }
 
-    public CollezioneTelefilm(int capacita) {
+    public CollezioneTelefilm(int capacita) throws Exception {
         this.elenco = new Telefilm[capacita];
         this.numTelefilm = 0;
     }
@@ -27,12 +25,12 @@ public class CollezioneTelefilm {
     }
 
     // Aggiunge se c'è spazio
-    public void aggiungiTelefilm(Telefilm t) {
+    public void aggiungiTelefilm(Telefilm t) throws Exception {
         if (numTelefilm < elenco.length) {
             elenco[numTelefilm] = t;
             numTelefilm++;
         } else {
-            System.out.println("Collezione piena!");
+            throw new Exception("Collezione piena");
         }
     }
 
