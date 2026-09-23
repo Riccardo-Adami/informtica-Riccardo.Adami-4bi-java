@@ -13,11 +13,11 @@ public class Stagione {
     private String trama;
     private int nStagione;
 
-    public Stagione(int nep, String nome, String trama, int nstagione) {
-        this.nEp = nep;
-        this.nome = nome;
-        this.trama = trama;
-        this.nStagione = nstagione;
+    public Stagione(int nep, String nome, String trama, int nstagione) throws Exception {
+        this.nEp = setnEp(nep);
+        this.nome = setNome(nome);
+        this.trama = setTrama(trama);
+        this.nStagione = setnStagione(nstagione);
     }
 
     public Stagione() {
@@ -43,19 +43,23 @@ public class Stagione {
         return this.nStagione;
     }
 
-    public void setnEp(int nEp) {
+    public void setnEp(int nEp) throws Exception {
+        if (nEp <= 0) throw new IllegalArgumentException("Error: Il numero di episodi deve essere maggiore di 0");
         this.nEp = nEp;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws Exception {
+        if (nome == null || nome.trim().isEmpty()) throw new IllegalArgumentException("Error: Il nome dello sceneggiatore non può essere vuoto");
         this.nome = nome;
     }
 
-    public void setTrama(String trama) {
+    public void setTrama(String trama) throws Exception {
+        if (trama == null || trama.trim().isEmpty()) throw new IllegalArgumentException("Error: La trama non può essere vuota");
         this.trama = trama;
     }
 
-    public void setnStagione(int nStagione) {
+    public void setnStagione(int nStagione) throws Exception {
+        if (nStagione <= 0) throw new IllegalArgumentException("Error: Il numero della stagione deve essere maggiore di 0");
         this.nStagione = nStagione;
     }
 
