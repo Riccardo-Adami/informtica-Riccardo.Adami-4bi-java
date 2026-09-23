@@ -7,24 +7,22 @@ public class Telefilm {
     private Stagione[] stagioni;
 
     public Telefilm() {
-        this.nomeFilm = "";
-        this.genereTeleFilm = "";
-        this.finito = false;
-        this.stagioni = new Stagione[0];
+        this("", "", false, new Stagione[0]);
     }
 
     public Telefilm(String nomeFilm, String genereTeleFilm, boolean finito, Stagione[] stagioni) {
-        this.nomeFilm = nomeFilm;
-        this.genereTeleFilm = genereTeleFilm;
-        this.finito = finito;
-        this.stagioni = stagioni;
+        this.nomeFilm = setNomeFilm(nomeFilm);
+        this.genereTeleFilm = setGenereTeleFilm(genereTeleFilm);
+        this.finito = setFinito(finito);
+        this.stagioni = setStagioni(stagioni);
     }
 
     public String getNomeFilm() {
         return nomeFilm;
     }
 
-    public void setNomeFilm(String nomeFilm) {
+    public void setNomeFilm(String nomeFilm) throws Exception {
+        if (nomeFilm == null || nomeFilm.trim().isEmpty()) throw new IllegalArgumentException("Error: Il nome del film non può essere vuoto");
         this.nomeFilm = nomeFilm;
     }
 
@@ -32,7 +30,8 @@ public class Telefilm {
         return genereTeleFilm;
     }
 
-    public void setGenereTeleFilm(String genereTeleFilm) {
+    public void setGenereTeleFilm(String genereTeleFilm) throws Exception {
+        if (genereTeleFilm == null || genereTeleFilm.trim().isEmpty()) throw new IllegalArgumentException("Error: Il genere del telefilm non può essere vuoto");
         this.genereTeleFilm = genereTeleFilm;
     }
 
@@ -40,7 +39,7 @@ public class Telefilm {
         return finito;
     }
 
-    public void setFinito(boolean finito) {
+    public void setFinito(boolean finito) throws Exception {
         this.finito = finito;
     }
 
@@ -48,7 +47,8 @@ public class Telefilm {
         return stagioni;
     }
 
-    public void setStagioni(Stagione[] stagioni) {
+    public void setStagioni(Stagione[] stagioni) throws Exception {
+        if (stagioni == null) throw new IllegalArgumentException("Error: L'array delle stagioni non può essere vuoto"); 
         this.stagioni = stagioni;
     }
 

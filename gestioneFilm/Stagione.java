@@ -63,10 +63,6 @@ public class Stagione {
         this.nStagione = nStagione;
     }
 
-    public void saluita(){
-        System.out.println(this.toString());
-    }
-
     @Override
     public String toString() {
         return "Stagione [nEp=" + nEp + ", nome=" + nome + ", trama=" + trama + ", nStagione=" + nStagione + "]";
