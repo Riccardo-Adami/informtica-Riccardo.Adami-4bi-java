@@ -66,7 +66,7 @@ public class Telefilm {
 
     public boolean cercaSceneggiatore(String nomeSceneggiatore) {
         if (stagioni != null) {
-            for (Stagione s : stagioni) {
+            for (Stagione s : stagioni) { // molto più comodo di indicizzare
                 if (s.getNomeSceneggiatore().equalsIgnoreCase(nomeSceneggiatore)) {
                     return true;
                 }
@@ -82,12 +82,19 @@ public class Telefilm {
         for (int i = 0; i < stagioni.length - 1; i++) {
             for (int j = 0; j < stagioni.length - 1 - i; j++) {
                 if (stagioni[j].getnStagione() > stagioni[j + 1].getnStagione()) {
-                    Stagione temp = stagioni[j];
-                    stagioni[j] = stagioni[j + 1];
-                    stagioni[j + 1] = temp;
+                    swap(j, j + 1);
                 }
             }
         }
+    }
+
+    public void swap(int i, int j) {
+        if (stagioni == null || i < 0 || j < 0 || i >= stagioni.length || j >= stagioni.length) {
+            throw new IndexOutOfBoundsException("Indice fuori dai limiti dell'array delle stagioni");
+        }
+        Stagione temp = stagioni[i];
+        stagioni[i] = stagioni[j];
+        stagioni[j] = temp;
     }
 
     @Override
@@ -99,4 +106,5 @@ public class Telefilm {
                 ", stagioni=" + Arrays.toString(stagioni) +
                 '}';
     }
+    
 }
